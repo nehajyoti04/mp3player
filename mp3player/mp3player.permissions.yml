@@ -1,0 +1,3 @@
+administer mp3player:
+  title: 'Administer mp3player'
+  restrict access: TRUE

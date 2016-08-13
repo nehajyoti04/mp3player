@@ -1,0 +1,14 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function mp3player_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.mp3player':
+      return '<p>'. t("A module to integrate the WordPress Audio Player into Drupal.") .'</p>';
+  }
+}

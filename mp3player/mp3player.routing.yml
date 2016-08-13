@@ -1,0 +1,29 @@
+mp3player.player_list:
+  path: '/admin/config/media/mp3player'
+  defaults:
+    _controller: '\Drupal\mp3player\Controller\Mp3playerController::mp3player_player_list'
+    _title: 'MP3 Player'
+  requirements:
+#  _permission: 'access content'
+#    _access: 'TRUE'
+    _permission: 'administer mp3player'
+
+mp3player.add_new_player:
+  path: '/admin/config/media/mp3player/add-new-player'
+  defaults:
+    _form: '\Drupal\mp3player\Form\Mp3playerForm'
+    _title: 'Add new player'
+  requirements:
+#  _permission: 'access content'
+#    _access: 'TRUE'
+    _permission: 'administer mp3player'
+
+mp3player.global_settings:
+  path: '/admin/config/media/mp3player/global-settings'
+  defaults:
+    _form: '\Drupal\mp3player\Form\Mp3playerSettingsForm'
+    _title: 'Global Settings'
+  requirements:
+#  _permission: 'access content'
+#    _access: 'TRUE'
+    _permission: 'administer mp3player'
