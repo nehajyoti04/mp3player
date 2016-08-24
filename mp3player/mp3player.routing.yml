@@ -11,7 +11,7 @@ mp3player.player_list:
 mp3player.add_new_player:
   path: '/admin/config/media/mp3player/add-new-player'
   defaults:
-    _form: '\Drupal\mp3player\Form\Mp3playerForm'
+    _form: '\Drupal\mp3player\Form\Mp3playerAddForm'
     _title: 'Add new player'
   requirements:
 #  _permission: 'access content'
@@ -26,4 +26,20 @@ mp3player.global_settings:
   requirements:
 #  _permission: 'access content'
 #    _access: 'TRUE'
+    _permission: 'administer mp3player'
+
+mp3player.edit_player:
+  path: '/admin/config/media/mp3player/player/{pid}'
+  defaults:
+     _form: '\Drupal\mp3player\Form\Mp3playerAddForm'
+     _title: 'Edit player'
+  requirements:
+    _permission: 'administer mp3player'
+
+mp3player.delete_player:
+  path: '/admin/config/media/mp3player/player/{pid}/delete'
+  defaults:
+     _form: '\Drupal\mp3player\Form\Mp3playerDeleteForm'
+     _title: 'Delete player'
+  requirements:
     _permission: 'administer mp3player'
