@@ -10,17 +10,6 @@ class Mp3playerController extends ControllerBase {
 
   public function mp3player_player_list() {
 
-//    $element = array(
-//      '#markup' => 'Hello, world',
-//    );
-//    return $element;
-//    $build = array(
-//      '#type' => 'markup',
-//      '#markup' => t('Hello World!'),
-//    );
-//    return $build;
-
-
     $header = array(t('Player Name'), t('Actions'));
     $rows = array();
     $players = $this->mp3player_players();
