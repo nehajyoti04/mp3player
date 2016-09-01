@@ -41,8 +41,10 @@ class Mp3playerAddForm extends FormBase {
 
     if(!$pid) {
       $player = $player[1];
-//      $player['pid'] = '';
-//      $player['name'] = '';
+      $player['pid'] = '';
+      $player['name'] = '';
+    }else{
+      $player = $player[$pid];
     }
 
 
@@ -345,13 +347,66 @@ class Mp3playerAddForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-//    dpm("form state");
-//    dpm($form_state->getValues());
+    dpm("form state");
+    dpm($form_state->getValues());
 
-   \Drupal::database()->merge('mp3player_players')
-     ->key(array('name' => 'hello'))
-     ->fields(array('autostart' => 'yes'))
-     ->execute();
+//   \Drupal::database()->merge('mp3player_players')
+//     ->key(array('name' => 'hello'))
+//     ->fields(array('autostart' => 'yes'))
+//     ->execute();
+
+    $values = $form_state->getValue();
+
+    \Drupal::database()->merge('mp3player_players')
+      ->key(array('name' => $values['name']))
+      ->fields(array(
+        'autostart' => $values['autostart'],
+    'loopaudio' => $values['loopaudio'],
+    'animation' => $values['animation'],
+    'remaining' => $values['remaining'],
+    'noinfo' => $values['noinfo'],
+    'initialvolume' => $values['initialvolume'],
+    'buffer' => $values['buffer'],
+    'encode' => $values['encode'],
+    'checkpolicy' => $values['checkpolicy'],
+    'rtl' => $values['rtl'],
+    'width' => $values['width'],
+    'transparentpagebg' => $values['transparentpagebg'],
+    'pagebg' => $values['pagebg'],
+    'bg' => $values['bg'],
+    'leftbg' => $values['leftbg'],
+    'lefticon' => $values['lefticon'],
+    'voltrack' => $values['voltrack'],
+    'volslider' => $values['volslider'],
+    'rightbg' => $values['rightbg'],
+    'rightbghover' => $values['rightbghover'],
+    'righticon' => $values['righticon'],
+    'righticonhover' => $values['righticonhover'],
+    'loader' => $values['loader'],
+    'track' => $values['track'],
+    'tracker' => $values['tracker'],
+    'border' => $values['border'],
+    'skip' => $values['skip'],
+    'text' => $values['text'],
+      ))
+//      ->fields($form_state->getValues())
+      ->execute();
+
+
+
+
+
+//    $search = array();
+//    $message = 'New MP3 Player %name added.';
+//    if(isset($form_state->getValues()['pid'])) {
+//      $search = 'pid';
+//      $message = 'New MP3 Player %name updated';
+//    }
+//    drupal_write_record('mp3player_players', $form_state->getValues(), $search);
+//    drupal_set_message(t($message, array('%name' => $form_state->getValues()['name'])));
+//    $form_state['redirect'] = 'admin/config/media/mp3player';
+//    drupal_static_reset('mp3player_player_settings');
+
 
   }
 

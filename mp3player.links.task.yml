@@ -11,3 +11,7 @@ mp3player.add_new_player:
   title: Add new player
   base_route: mp3player.player_list
 
+mp3player.global_settings:
+  route_name: mp3player.global_settings
+  title: Global Settings
+  base_route: mp3player.player_list
