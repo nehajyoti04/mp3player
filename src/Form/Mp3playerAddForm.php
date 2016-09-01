@@ -12,18 +12,6 @@ use Drupal\Core\Form\FormStateInterface;
 
 use Drupal\mp3player\Controller\Mp3playerController;
 
-use Drupal\Core\Database\Query\Merge;
-use Drupal\Core\Database\Connection;
-
-use Drupal\Core\DrupalKernel;
-use Symfony\Component\HttpFoundation\Request;
-use Drupal\Component\Render\HtmlEscapedText;
-use Drupal\Component\Utility\SafeMarkup;
-use Drupal\Component\Render\MarkupInterface;
-use Drupal\Component\Render\MarkupTrait;
-use Drupal\Component\Utility\UrlHelper;
-use Drupal\Tests\UnitTestCase;
-
 /**
  * Implements an example form.
  */
@@ -395,19 +383,6 @@ class Mp3playerAddForm extends FormBase {
       ->execute();
 
 
-
-
-
-//    $search = array();
-//    $message = 'New MP3 Player %name added.';
-//    if(isset($form_state->getValues()['pid'])) {
-//      $search = 'pid';
-//      $message = 'New MP3 Player %name updated';
-//    }
-//    drupal_write_record('mp3player_players', $form_state->getValues(), $search);
-//    drupal_set_message(t($message, array('%name' => $form_state->getValues()['name'])));
-//    $form_state['redirect'] = 'admin/config/media/mp3player';
-//    drupal_static_reset('mp3player_player_settings');
 
     $form_state->setRedirect('mp3player.player_list');
   }
