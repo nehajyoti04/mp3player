@@ -8,12 +8,22 @@ use Drupal\Core\Authentication\AuthenticationProviderInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Session;
 
+
+use Drupal\Core\DrupalKernel;
+use Drupal\Core\Form\EnforcedResponseException;
+use Drupal\Core\Url;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Drupal\Core\Site\Settings;
+
+
 class Mp3playerSubscriber implements EventSubscriberInterface {
 
   protected $started = false;
 
   public function check_mp3player_files() {
-//    print "hello";
+
 //
 //    drupal_set_message(
 //      t('%file1 or %file2 were not found in %directory, download the <a href="http://wpaudioplayer.com/download">standalone WordPress Audio Player</a>.',
@@ -25,8 +35,17 @@ class Mp3playerSubscriber implements EventSubscriberInterface {
 //      'error'
 //    );
 
+
     if(!file_exists(libraries_get_path('audio-player').'/audio-player.js') ||
       !file_exists(libraries_get_path('audio-player').'/player.swf')) {
+
+$message = "hello";
+   $check1 = !file_exists(libraries_get_path('audio-player').'/audio-player.js');
+   \Drupal::logger('mp3player')->notice($message . "check1". $check1);
+   // drupal_set_message(t("message"), 'error');
+
+
+
       drupal_set_message(
         t('%file1 or %file2 were not found in %directory, download the <a href="http://wpaudioplayer.com/download">standalone WordPress Audio Player</a>.',
           array(

@@ -1,8 +1,8 @@
-# services:
-#   mp3player.event_subscriber:
-#     class: Drupal\mp3player\EventSubscriber\Mp3playerSubscriber
-#     arguments:
-#       - '@authentication'
-#       - '@current_user'
-#     tags:
-#       - {name: event_subscriber}
+services:
+  mp3player.event_subscriber:
+    class: Drupal\mp3player\EventSubscriber\Mp3playerSubscriber
+    arguments:
+      - '@authentication'
+      - '@current_user'
+    tags:
+      - {name: event_subscriber}
