@@ -409,7 +409,7 @@ class Mp3playerAddForm extends FormBase {
 //    $form_state['redirect'] = 'admin/config/media/mp3player';
 //    drupal_static_reset('mp3player_player_settings');
 
-//    $form_state['redirect'] = 'admin/config/media/mp3player';
+    $form_state->setRedirect('mp3player.player_list');
   }
 
 }
