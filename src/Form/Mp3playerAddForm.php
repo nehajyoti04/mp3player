@@ -347,19 +347,21 @@ class Mp3playerAddForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    dpm("form state");
-    dpm($form_state->getValues());
+//    dpm("form state");
+//    dpm($form_state->getValues());
 
 //   \Drupal::database()->merge('mp3player_players')
 //     ->key(array('name' => 'hello'))
 //     ->fields(array('autostart' => 'yes'))
 //     ->execute();
 
-    $values = $form_state->getValue();
+    $values = $form_state->getValues();
 
     \Drupal::database()->merge('mp3player_players')
-      ->key(array('name' => $values['name']))
+      ->key(array('pid' => $values['pid']))
+//      ->key(array('name' => $values['name']))
       ->fields(array(
+        'name' => $values['name'],
         'autostart' => $values['autostart'],
     'loopaudio' => $values['loopaudio'],
     'animation' => $values['animation'],
@@ -407,7 +409,7 @@ class Mp3playerAddForm extends FormBase {
 //    $form_state['redirect'] = 'admin/config/media/mp3player';
 //    drupal_static_reset('mp3player_player_settings');
 
-
+//    $form_state['redirect'] = 'admin/config/media/mp3player';
   }
 
 }
