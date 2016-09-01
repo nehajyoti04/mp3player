@@ -1,0 +1,13 @@
+# Add a default local task for the file system settings page, so that the local
+# task added by Configuration Translation becomes visible. This facilitates
+# manual testing.
+mp3player.player_list:
+  route_name: mp3player.player_list
+  title: Player List
+  base_route: mp3player.player_list
+
+mp3player.add_new_player:
+  route_name: mp3player.add_new_player
+  title: Add new player
+  base_route: mp3player.player_list
+
