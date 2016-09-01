@@ -1,0 +1,5 @@
+mp3player.global_settings:
+  title: 'Mp3player'
+  parent: system.admin_config_media
+  description: 'Configure mp3player.'
+  route_name: mp3player.global_settings
