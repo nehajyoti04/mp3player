@@ -338,10 +338,6 @@ class Mp3playerAddForm extends FormBase {
 //    dpm("form state");
 //    dpm($form_state->getValues());
 
-//   \Drupal::database()->merge('mp3player_players')
-//     ->key(array('name' => 'hello'))
-//     ->fields(array('autostart' => 'yes'))
-//     ->execute();
 
     $values = $form_state->getValues();
 
@@ -353,13 +349,6 @@ class Mp3playerAddForm extends FormBase {
         }
 
     \Drupal::database()->merge('mp3player_players')
-
-//    if(isset($values['pid'])) {
-//      $query->key(array('pid' => $values['pid']));
-//    }
-//    else{
-//      $query->key();
-//    }
       ->key($keys)
       ->fields(array(
         'name' => $values['name'],
