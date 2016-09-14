@@ -13,7 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\mp3player\Controller\Mp3playerController;
 
 /**
- * Implements an example form.
+ * Implements an Mp3playerAddForm form.
  */
 class Mp3playerAddForm extends FormBase {
 
