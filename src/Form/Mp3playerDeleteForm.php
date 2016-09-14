@@ -1,22 +1,18 @@
 <?php
 /**
  * @file
- * Contains \Drupal\example\Form\ExampleForm.
+ * Contains \Drupal\mp3player\Form\ExampleForm.
  */
 
 namespace Drupal\mp3player\Form;
 
-//use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-
 use Drupal\mp3player\Controller\Mp3playerController;
-
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Url;
-//use Drupal\Core\Entity\EntityConfirmFormBase;
 
 /**
- * Implements an example form.
+ * Implements Mp3playerDeleteForm.
  */
 class Mp3playerDeleteForm extends ConfirmFormBase {
 
@@ -45,21 +41,21 @@ class Mp3playerDeleteForm extends ConfirmFormBase {
   /**
    * {@inheritdoc}
    */
-    public function getCancelUrl() {
-      return new Url('mp3player.player_list');
+  public function getCancelUrl() {
+    return new Url('mp3player.player_list');
   }
 
   /**
    * {@inheritdoc}
    */
-    public function getConfirmText() {
+  public function getConfirmText() {
     return t('Delete');
   }
 
   /**
    * {@inheritdoc}
    */
-    public function getCancelText() {
+  public function getCancelText() {
     return t('Cancel');
   }
 
@@ -73,19 +69,21 @@ class Mp3playerDeleteForm extends ConfirmFormBase {
     }
 
     if (empty($player)) {
-     drupal_set_message(t('The specified player was not found.'), 'error');
-     drupal_goto('admin/settings/mp3player');
+      drupal_set_message(t('The specified player was not found.'), 'error');
+//     drupal_goto('admin/settings/mp3player');
+      $response = new RedirectResponse(Drupal::url('mp3player.player_list'));
+      $response->send();
     }
     if($player['name'] == 'Default') {
       drupal_set_message(t('You cannot delete the Default player.'), 'error');
-      drupal_goto('admin/settings/mp3player');
+      $response = new RedirectResponse(Drupal::url('mp3player.player_list'));
+      $response->send();
     }
 
-   $form['pid'] = array('#type' => 'value', '#value' => $pid);
+    $form['pid'] = array('#type' => 'value', '#value' => $pid);
 
-   return parent::buildForm($form, $form_state);
+    return parent::buildForm($form, $form_state);
   }
-
 
   /**
    * {@inheritdoc}
@@ -93,7 +91,5 @@ class Mp3playerDeleteForm extends ConfirmFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     db_delete('mp3player_players')->condition('pid', $form_state->getValues()['pid'])->execute();
     $form_state->setRedirect('mp3player.player_list');
-
   }
-
 }
