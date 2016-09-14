@@ -16,7 +16,7 @@ use Drupal\Core\Url;
 //use Drupal\Core\Entity\EntityConfirmFormBase;
 
 /**
- * Implements an example form.
+ * Implements an Mp3playerDeleteForm form.
  */
 class Mp3playerDeleteForm extends ConfirmFormBase {
 
