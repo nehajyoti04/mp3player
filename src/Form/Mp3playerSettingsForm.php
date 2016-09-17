@@ -11,7 +11,6 @@ use Drupal\Core\Datetime\Date;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-
 class Mp3playerSettingsForm extends ConfigFormBase {
   public function getFormId() {
     return 'mp3player_settings';
@@ -20,7 +19,6 @@ class Mp3playerSettingsForm extends ConfigFormBase {
     return [
       'mp3player.settings',
     ];
-
   }
   public function buildForm(array $form, FormStateInterface $form_state) {
 

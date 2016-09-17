@@ -9,16 +9,13 @@ use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Session;
 use Drupal\libraries\ExternalLibrary\Asset;
 
-
 class Mp3playerSubscriber implements EventSubscriberInterface {
 
   protected $started = false;
 
   public function check_mp3player_files() {
-
     if(!file_exists(libraries_get_path('audio-player').'/audio-player.js') ||
       !file_exists(libraries_get_path('audio-player').'/player.swf')) {
-
       drupal_set_message(
         t('%file1 or %file2 were not found in %directory, download the <a href="http://wpaudioplayer.com/download">standalone WordPress Audio Player</a>.',
           array(

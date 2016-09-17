@@ -70,7 +70,6 @@ class Mp3playerDeleteForm extends ConfirmFormBase {
 
     if (empty($player)) {
       drupal_set_message(t('The specified player was not found.'), 'error');
-//     drupal_goto('admin/settings/mp3player');
       $response = new RedirectResponse(Drupal::url('mp3player.player_list'));
       $response->send();
     }
