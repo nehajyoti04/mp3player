@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\remember_me\Form\Remember_meConfigForm.
+ * Contains \Drupal\mp3player\Form.
  */
 
 namespace Drupal\mp3player\Form;
@@ -38,21 +38,14 @@ class Mp3playerSettingsForm extends ConfigFormBase {
   }
 
   /**
-   * Implements hook_form_submit().
-   *
    * @param array $form
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Set values in variables.
     $this->config('mp3player.settings')
-    ->set('mp3player_encode', $form_state->getValues()['mp3player_encode'])
-//    $config = \Drupal::service('config.factory')->getEditable('remember_me.settings');
-//    $config->set('remember_me_managed', $form_state->getValues()['remember_me_managed']);
-//    $config->set('remember_me_lifetime', $form_state->getValues()['remember_me_lifetime']);
-//    $config->set('remember_me_checkbox', $form_state->getValues()['remember_me_checkbox']);
-//    $config->set('remember_me_checkbox_visible', $form_state->getValues()['remember_me_checkbox_visible']);
-    ->save();
+      ->set('mp3player_encode', $form_state->getValues()['mp3player_encode'])
+      ->save();
     parent::submitForm($form, $form_state);
   }
 }

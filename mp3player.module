@@ -12,12 +12,3 @@ function mp3player_help($route_name, RouteMatchInterface $route_match) {
       return '<p>'. t("A module to integrate the WordPress Audio Player into Drupal.") .'</p>';
   }
 }
-
-/**
- * Implements hook_page_attachments().
- */
-function mp3player_page_attachments(array &$attachments) {
-
-  $attachments['#attached']['library'][] = 'mp3player/mp3player_js';
-
-}
