@@ -47,4 +47,3 @@ class Mp3playerSettingsForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
   }
 }
-

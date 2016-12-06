@@ -1,5 +1,5 @@
 Instructions:
-
+=================
 Inside the drupal root directory, Create a folder libraries. Inside libraries folder create audio-player directory with 2 files - audio-player.js and player.swf - Downloaded from the link http://wpaudioplayer.com/download.
 
 ==============================
